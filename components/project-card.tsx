@@ -26,13 +26,33 @@ export default function ProjectCard({
           {heading}
         </Link>
         <Divider className="bg-stone-600 mb-2" />
-        <Image src={image} className="w-full h-auto aspect-video rounded-md" />
+        <Image
+          alt="project photo"
+          src={image}
+          className="w-full h-auto aspect-video rounded-md"
+        />
         <div className="flex flex-wrap gap-2 pt-2">
           {tools?.map((tool) => {
             return (
-              <Chip color="primary" variant="faded">
-                {tool}
-              </Chip>
+              <>
+                <Chip
+                  size="sm"
+                  key={tool}
+                  color="primary"
+                  variant="faded"
+                  className="flex sm:hidden"
+                >
+                  {tool}
+                </Chip>
+                <Chip
+                  key={tool}
+                  color="primary"
+                  variant="faded"
+                  className="sm:flex hidden"
+                >
+                  {tool}
+                </Chip>
+              </>
             );
           })}
         </div>

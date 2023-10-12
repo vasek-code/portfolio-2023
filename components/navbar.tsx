@@ -1,6 +1,12 @@
 "use client";
 
-import { aboutAtom, contactAtom, projectsAtom, skillsAtom } from "@/app/page";
+import {
+  aboutAtom,
+  contactAtom,
+  projectsAtom,
+  servicesAtom,
+  skillsAtom,
+} from "@/components/providers";
 import { useIsInViewport } from "@/hooks/useIsInViewport";
 import {
   Button,
@@ -24,6 +30,7 @@ export function Navbar() {
   const [about, setAbout] = useAtom(aboutAtom);
   const [project, setProject] = useAtom(projectsAtom);
   const [contact, setContact] = useAtom(contactAtom);
+  const [services, setServices] = useAtom(servicesAtom);
 
   return (
     <NextNavbar
@@ -31,6 +38,7 @@ export function Navbar() {
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
       shouldHideOnScroll={!isMenuOpen}
+      className="px-2 md:px-0"
     >
       <NavbarContent className="lg:hidden" justify="start">
         <NavbarMenuToggle
@@ -78,19 +86,7 @@ export function Navbar() {
             About
           </Link>
         </NavbarItem>
-        <NavbarItem>
-          <Link
-            className="cursor-pointer"
-            color={"foreground"}
-            onClick={() => {
-              skill?.current?.scrollIntoView({
-                behavior: "smooth",
-              });
-            }}
-          >
-            Skills
-          </Link>
-        </NavbarItem>
+
         <NavbarItem>
           <Link
             className="cursor-pointer"
@@ -110,6 +106,32 @@ export function Navbar() {
             className="cursor-pointer"
             color={"foreground"}
             onClick={() => {
+              skill?.current?.scrollIntoView({
+                behavior: "smooth",
+              });
+            }}
+          >
+            Skills
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link
+            className="cursor-pointer"
+            color={"foreground"}
+            onClick={() => {
+              services?.current?.scrollIntoView({
+                behavior: "smooth",
+              });
+            }}
+          >
+            Services
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link
+            className="cursor-pointer"
+            color={"foreground"}
+            onClick={() => {
               contact?.current?.scrollIntoView({
                 behavior: "smooth",
               });
@@ -121,7 +143,7 @@ export function Navbar() {
       </NavbarContent>
       <NavbarContent justify="end" className="hidden sm:flex">
         <NavbarItem className="flex">
-          <Button
+          {/* <Button
             as={Link}
             color="secondary"
             variant="solid"
@@ -131,7 +153,7 @@ export function Navbar() {
             target="_blank"
           >
             <span className="hidden lg:flex">Download CV</span>
-          </Button>
+          </Button> */}
         </NavbarItem>
         <NavbarItem>
           <Button
@@ -160,6 +182,7 @@ export function Navbar() {
               about?.current?.scrollIntoView({
                 behavior: "smooth",
               });
+              setIsMenuOpen(false);
             }}
           >
             About
@@ -171,23 +194,10 @@ export function Navbar() {
             color="foreground"
             size="lg"
             onClick={() => {
-              skill?.current?.scrollIntoView({
-                behavior: "smooth",
-              });
-            }}
-          >
-            Skills
-          </Link>
-        </NavbarMenuItem>
-        <NavbarMenuItem>
-          <Link
-            className="w-full"
-            color="foreground"
-            size="lg"
-            onClick={() => {
               project?.current?.scrollIntoView({
                 behavior: "smooth",
               });
+              setIsMenuOpen(false);
             }}
           >
             Projects
@@ -199,9 +209,41 @@ export function Navbar() {
             color="foreground"
             size="lg"
             onClick={() => {
+              skill?.current?.scrollIntoView({
+                behavior: "smooth",
+              });
+              setIsMenuOpen(false);
+            }}
+          >
+            Skills
+          </Link>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
+          <Link
+            className="w-full"
+            color="foreground"
+            size="lg"
+            onClick={() => {
+              services?.current?.scrollIntoView({
+                behavior: "smooth",
+              });
+              setIsMenuOpen(false);
+            }}
+          >
+            Services
+          </Link>
+        </NavbarMenuItem>
+
+        <NavbarMenuItem>
+          <Link
+            className="w-full"
+            color="foreground"
+            size="lg"
+            onClick={() => {
               contact?.current?.scrollIntoView({
                 behavior: "smooth",
               });
+              setIsMenuOpen(false);
             }}
           >
             Contact
@@ -209,7 +251,7 @@ export function Navbar() {
         </NavbarMenuItem>
         <div className="w-full flex justify-start gap-2 flex-col md:flex-row">
           <NavbarMenuItem className="w-full">
-            <Button
+            {/* <Button
               as={Link}
               color="secondary"
               variant="solid"
@@ -219,7 +261,7 @@ export function Navbar() {
               target="_blank"
             >
               <span className="">Download CV</span>
-            </Button>
+            </Button> */}
           </NavbarMenuItem>
           <NavbarMenuItem className="w-full">
             <Button
@@ -232,6 +274,7 @@ export function Navbar() {
                 contact?.current?.scrollIntoView({
                   behavior: "smooth",
                 });
+                setIsMenuOpen(false);
               }}
             >
               <span className="">Contact me</span>
