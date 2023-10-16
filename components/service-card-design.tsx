@@ -24,16 +24,6 @@ export function ServiceCardDesign() {
         </CardHeader>
         <Divider />
         <CardBody className="p-3 flex flex-col gap-5">
-          <p>
-            I will craft professional design solutions that guarantee lasting
-            quality and demand minimal upkeep. These services are best suited
-            for individuals or businesses looking to establish a striking online
-            presence through captivating website design and distinctive logo
-            creation. By harnessing the power of cutting-edge design
-            technologies, I can deliver both visually appealing website layouts
-            and unique logos that ensure a memorable and enduring online
-            identity.
-          </p>
           <ul className="list-disc ml-5 flex flex-col gap-3 pb-3 pt-2">
             <li>
               <b>Design Services</b>: Crafting visually appealing websites and
